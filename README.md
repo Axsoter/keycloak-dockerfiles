@@ -2,11 +2,14 @@
 
 ## Installation tutorial
 
+### Step 0: Dependencies 
+- [GH CLI](https://github.com/cli/cli#installation)
+- [Docker](https://docs.docker.com/engine/install/)
+- [nginx](http://nginx.org/en/linux_packages.html)
+
 ### Step 1: Clone the Repository
 
 First, clone the repository containing all the necessary files.
-
-You will need the [GH CLI](https://cli.github.com).
 
 ```sh
 gh repo clone Axsoter/keycloak-dockerfiles
@@ -42,30 +45,24 @@ cd keycloak-dockerfiles
     sudo systemctl start keycloak.service
     ```
 
-### Step 4: Install and Configure Nginx
+### Step 4: Configure Nginx
 
-1. **Install Nginx**:
-    ```sh
-    sudo apt update
-    sudo apt install nginx
-    ```
-
-2. **Copy the Nginx Configuration File**:
+1. **Copy the Nginx Configuration File**:
     ```sh
     sudo cp sites-available/login.axsoter.com /etc/nginx/sites-available/
     ```
 
-3. **Enable the Site**:
+2. **Enable the Site**:
     ```sh
     sudo ln -s /etc/nginx/sites-available/login.axsoter.com /etc/nginx/sites-enabled/
     ```
 
-4. **Test Nginx Configuration**:
+3. **Test Nginx Configuration**:
     ```sh
     sudo nginx -t
     ```
 
-5. **Reload Nginx**:
+4. **Reload Nginx**:
     ```sh
     sudo systemctl reload nginx
     ```
