@@ -1,0 +1,13 @@
+[Unit]
+Description=Keycloak Container
+After=docker.service
+Requires=docker.service
+
+[Service]
+Restart=always
+ExecStart=/usr/bin/docker run -p 8080:8080 my-keycloak-image
+ExecStop=/usr/bin/docker stop -t 2 %n
+ExecStopPost=/usr/bin/docker rm -f %n
+
+[Install]
+WantedBy=multi-user.target
