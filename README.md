@@ -53,6 +53,9 @@ cd keycloak-dockerfiles
 
 ### Step 4: Configure Nginx
 
+0. **IMPORTANT**;
+   Please change the domain otherwise it WON'T WORK.
+
 1. **Copy the Nginx Configuration File**:
     ```sh
     sudo cp sites-available/login.axsoter.com /etc/nginx/sites-available/
@@ -74,6 +77,9 @@ cd keycloak-dockerfiles
     ```
 
 ### Step 5: Set Up HTTPS with Certbot
+
+0. **IMPORTANT**;
+   Same as Step 4
 
 1. **Install Certbot**:
     ```sh
