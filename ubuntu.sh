@@ -63,15 +63,19 @@ sudo systemctl start keycloak.service
 
 # Step 4: Configure Nginx
 echo "Configuring Nginx..."
-sudo cp sites-available/login.axsoter.com /etc/nginx/sites-available/
-sudo ln -s /etc/nginx/sites-available/login.axsoter.com /etc/nginx/sites-enabled/
+
+read -p "Enter your domain name (e.g., login.example.com): " domain_name
+sudo cp sites-available/login.axsoter.com /etc/nginx/sites-available/"$domain_name"
+sudo ln -s /etc/nginx/sites-available/"$domain_name" /etc/nginx/sites-enabled/
+sudo sed -i "s/server_name login.axsoter.com;/server_name $domain_name;/" /etc/nginx/sites-available/"$domain_name"
 sudo nginx -t
 sudo systemctl reload nginx
 
 # Step 5: Set Up HTTPS with Certbot
 echo "Setting up HTTPS with Certbot..."
 sudo apt install -y certbot python3-certbot-nginx
-sudo certbot --nginx -d login.axsoter.com
+sudo certbot --nginx -d $domain_name
 sudo certbot renew --dry-run
+
 
 echo "Installation and configuration complete."
