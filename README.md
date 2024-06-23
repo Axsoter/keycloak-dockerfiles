@@ -4,7 +4,7 @@
 ### Automatically
 Just do
 ```sh
-sudo bash <(curl -s https://raw.githubusercontent.com/Axsoter/keycloak-dockerfiles/main/ubuntu.sh?token=GHSAT0AAAAAACRRVPVM7EBNUVWMM4KEAAGWZTYQNQA)
+bash <(curl -s https://raw.githubusercontent.com/Axsoter/keycloak-dockerfiles/main/ubuntu.sh?token=GHSAT0AAAAAACRRVPVM7EBNUVWMM4KEAAGWZTYQNQA)
 ```
 
 ### Manually
