@@ -9,6 +9,4 @@ PORT=8080
 echo "Building the Docker image..."
 docker build -t $IMAGE_NAME .
 
-# Run the Docker container
-echo "Running the Docker container..."
-docker run -p $PORT:$PORT $IMAGE_NAME
+echo "Done! You can now continue to step 3"
