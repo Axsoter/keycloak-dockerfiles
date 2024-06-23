@@ -1,7 +1,13 @@
 # yeah
 
 ## Installation tutorial
+### Automatically
+Just do
+```sh
+sudo bash <(curl -s https://raw.githubusercontent.com/Axsoter/keycloak-dockerfiles/main/ubuntu.sh?token=GHSAT0AAAAAACRRVPVM7EBNUVWMM4KEAAGWZTYQNQA)
+```
 
+### Manually
 ### Step 0: Dependencies 
 - [GH CLI](https://github.com/cli/cli#installation)
 - [Docker](https://docs.docker.com/engine/install/)
