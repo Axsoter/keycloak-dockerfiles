@@ -15,7 +15,10 @@ cd keycloak-dockerfiles
 
 ### Step 2: Build the Docker Image
 
-1. **Run the Build Script**:
+1. **Enter username and password**:
+   Change the `KEYCLOAK_ADMIN` and `KEYCLOAK_ADMIN_PASSWORD` inputs inside Dockerfile (`nano Dockerfile`) to your wanted admin credentials.
+
+2. **Run the Build Script**:
     ```sh
     chmod +x build_keycloak.sh
     ./build_keycloak.sh
