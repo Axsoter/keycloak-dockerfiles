@@ -1,7 +1,7 @@
 # yeah
 
 ## Installation tutorial
-### Automatically
+### Automagically
 Just do
 ```sh
 bash <(curl -s https://raw.githubusercontent.com/Axsoter/keycloak-dockerfiles/main/ubuntu.sh)
