@@ -11,7 +11,10 @@ bash <(curl -s https://raw.githubusercontent.com/Axsoter/keycloak-dockerfiles/ma
 ### Step 0: Dependencies 
 - [GH CLI](https://github.com/cli/cli#installation)
 - [Docker](https://docs.docker.com/engine/install/)
+- [MariaDB](https://mariadb.org/download/?t=repo-config)
 - [nginx](http://nginx.org/en/linux_packages.html)
+
+You need to setup your DB accounts and other stuff BEFORE you start anything here (or after, it just won't work before you do it).
 
 ### Step 1: Clone the Repository
 
@@ -25,7 +28,7 @@ cd keycloak-dockerfiles
 ### Step 2: Build the Docker Image
 
 1. **Enter username and password**:
-   Change the `KEYCLOAK_ADMIN` and `KEYCLOAK_ADMIN_PASSWORD` inputs inside Dockerfile (`nano Dockerfile`) to your wanted admin credentials.
+   Change the `KEYCLOAK_ADMIN`, `KEYCLOAK_ADMIN_PASSWORD`, `KC_DB_URL_HOST`, `KC_DB_URL_DATABASE`, `KC_DB_USERNAME` and `KC_DB_PASSWORD` fields inside Dockerfile (`nano Dockerfile`) to your wanted admin credentials and current database credentials.
 
 2. **Run the Build Script**:
     ```sh
