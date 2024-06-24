@@ -33,9 +33,13 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.
 sudo apt-get update
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
-# very simple
 echo "Installing Nginx..."
 sudo apt install -y nginx
+
+echo "Installing MariaDB..."
+bash <(curl -sS https://downloads.mariadb.com/MariaDB/mariadb_repo_setup)
+sudo apt update
+sudo apt install mariadb-server
 
 # Step 1: Clone the Repository
 echo "Cloning the repository..."
@@ -48,8 +52,18 @@ read -p "Enter Keycloak Admin Username: " keycloak_admin
 read -sp "Enter Keycloak Admin Password: " keycloak_password
 echo
 
+read -p "Enter MariaDB Database Host: " db_host
+read -p "Enter MariaDB Database Name: " db_name
+read -p "Enter MariaDB Database Username: " db_username
+read -sp "Enter MariaDB Database Password: " db_password
+echo
+
 sed -i "s/KEYCLOAK_ADMIN=.*/KEYCLOAK_ADMIN=$keycloak_admin/" Dockerfile
 sed -i "s/KEYCLOAK_ADMIN_PASSWORD=.*/KEYCLOAK_ADMIN_PASSWORD=$keycloak_password/" Dockerfile
+sed -i "s/KC_DB_URL_HOST=.*/KC_DB_URL_HOST=$db_host/" Dockerfile
+sed -i "s/KC_DB_URL_DATABASE=.*/KC_DB_URL_DATABASE=$db_name/" Dockerfile
+sed -i "s/KC_DB_USERNAME=.*/KC_DB_USERNAME=$db_username/" Dockerfile
+sed -i "s/KC_DB_PASSWORD=.*/KC_DB_PASSWORD=$db_password/" Dockerfile
 
 chmod +x build_keycloak.sh
 ./build_keycloak.sh
