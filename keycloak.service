@@ -6,7 +6,7 @@ Requires=docker.service
 [Service]
 Restart=always
 ExecStartPre=/usr/bin/docker rm -f keycloak || true
-ExecStart=/usr/bin/docker run --name keycloak -p 8080:8080 axsoter-id-image
+ExecStart=/usr/bin/docker run --name keycloak -p 8080:8080 axsoter-id-image start --optimized
 ExecStop=/usr/bin/docker stop -t 2 keycloak
 ExecStopPost=/usr/bin/docker rm -f keycloak
 
