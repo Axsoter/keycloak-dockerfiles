@@ -36,11 +36,6 @@ sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plug
 echo "Installing Nginx..."
 sudo apt install -y nginx
 
-echo "Installing MariaDB..."
-bash <(curl -sS https://downloads.mariadb.com/MariaDB/mariadb_repo_setup)
-sudo apt update
-sudo apt install mariadb-server
-
 # Step 1: Clone the Repository
 echo "Cloning the repository..."
 gh repo clone Axsoter/keycloak-dockerfiles
