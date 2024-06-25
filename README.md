@@ -2,7 +2,11 @@
 
 ## Installation tutorial
 ### Automagically
-Just do
+**You first need to manually install MariaDB and setup the accounts and databases**
+MariaDB downloader and installer:
+`bash <(curl -sS https://downloads.mariadb.com/MariaDB/mariadb_repo_setup) && sudo apt update && sudo apt install mariadb-server`
+
+After that is done just do
 ```sh
 bash <(curl -s https://raw.githubusercontent.com/Axsoter/keycloak-dockerfiles/main/ubuntu.sh)
 ```
