@@ -5,9 +5,10 @@ Requires=docker.service
 
 [Service]
 Restart=always
-ExecStart=/usr/bin/docker run -p 8080:8080 axsoter-id-image
-ExecStop=/usr/bin/docker stop -t 2 %n
-ExecStopPost=/usr/bin/docker rm -f %n
+ExecStartPre=/usr/bin/docker rm -f keycloak || true
+ExecStart=/usr/bin/docker run --name keycloak -p 8080:8080 axsoter-id-image
+ExecStop=/usr/bin/docker stop -t 2 keycloak
+ExecStopPost=/usr/bin/docker rm -f keycloak
 
 [Install]
 WantedBy=multi-user.target
